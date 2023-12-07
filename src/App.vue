@@ -2,8 +2,8 @@
     <div class="app">
         <form type="text">
             <h4>Create a post</h4>
-            <input class="input" type="text" placeholder="Title">
-            <input class="input" type="text" placeholder="Description">
+            <input @input="inputTitle" v-bind:value="title" class="input" type="text" placeholder="Title">
+            <input @input="inputDescription" v-bind:value="body" class="input" type="text" placeholder="Description">
             <button class="btn" @click="createPost">Create</button>
         </form>
         <div class="post" v-for="post in posts">
@@ -22,18 +22,20 @@ export default {
                 {id: 2, title: 'Vuejs', body: 'Description of post 2'},
                 {id: 3, title: 'Vuejs', body: 'Description of post 3'},
                 {id: 4, title: 'Vuejs', body: 'Description of post 4'}
-            ]
+            ],
+            title: '',
+            body: ''
         }
     },
     methods: {
-        addLike() {
-            this.likes += 1;
+        createPost() {
+
         },
-        addDisLike() {
-            this.dislikes -=1;
+        inputTitle(event) {
+            this.title = event.target.value;
         },
-        createPost {
-            this.
+        inputDescription(event) {
+            this.description = event.target.value;
         }
     }
 }
