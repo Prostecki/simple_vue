@@ -6,23 +6,22 @@
         <h4>Create a post</h4>
 
         <!-- Input field for the title, with two-way binding to the 'title' property in the data -->
-        <input 
-        @input="post.title = $event.target.value" 
-        v-bind:value="post.title" 
+        <input
+        v-model="post.title"
         class="input" 
-        type="text" 
+        type="text"
         placeholder="Title">
 
-        <!-- Input field for the body, with two-way binding to the 'body' property in the data -->
+        <!-- Input field for the body with two-way binding to the 'body' property in the data -->
         <input 
-        @input="post.body = $event.target.value" 
-        v-bind:value="post.body" 
+        v-model="post.body"
         class="input" 
         type="text" 
         placeholder="Description">
-
+        
         <button 
-        class="btn">
+        class="btn"
+        @click="createPost">
         Create
         </button>
     </form>
@@ -42,9 +41,18 @@ export default {
                 body: '',
             }
         }
+    },
+    methods: {
+        createPost() {
+            this.post.id = Date.now();
+            this.$emit('create', this.post)
+            this.post = {
+                title: '',
+                body: '',
+            }
+        }
     }
 }
-
 </script>
 
 <!-- Styles is using only for this component -->
