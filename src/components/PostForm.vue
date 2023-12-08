@@ -1,22 +1,22 @@
 <!-- The syntax includes of using template tag for structurizing html contents -->
 <template>
-    <!-- submit prevent - stops a default behavior of webpage (reload page after submit button)-->
+    <!-- The form with a submit event listener that prevents the default behavior -->
     <form @submit.prevent>
 
         <h4>Create a post</h4>
 
-        <!-- @input - binding the input value to the 'title' data property -->
+        <!-- Input field for the title, with two-way binding to the 'title' property in the data -->
         <input 
-        @input="title = $event.target.value" 
-        v-bind:value="title" 
+        @input="post.title = $event.target.value" 
+        v-bind:value="post.title" 
         class="input" 
         type="text" 
         placeholder="Title">
 
-        <!-- @input - binding the input value to the 'body' data property -->
+        <!-- Input field for the body, with two-way binding to the 'body' property in the data -->
         <input 
-        @input="body = $event.target.value" 
-        v-bind:value="body" 
+        @input="post.body = $event.target.value" 
+        v-bind:value="post.body" 
         class="input" 
         type="text" 
         placeholder="Description">
@@ -33,7 +33,16 @@
 
 // Need to export the components in order to use in App.vue
 export default {
-    
+    data() {
+        return {
+            post: {
+                // Title property for the post
+                title: '',
+                // Body property for the post
+                body: '',
+            }
+        }
+    }
 }
 
 </script>

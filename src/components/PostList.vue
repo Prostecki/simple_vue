@@ -1,6 +1,6 @@
 <!-- The syntax includes of using template tag for structurizing html contents -->
 <template>
-    <!-- Iterating over 'posts' array and displaying each post -->
+    <!-- Iterating over "posts" array and displaying each post -->
     <div class="post" v-for="post in posts">
         <div><strong>Title:</strong> {{ post.title }}</div>
         <div><strong>Description:</strong> {{ post.body }}</div>
@@ -11,7 +11,12 @@
 
 // Need to export the components in order to use in App.vue
 export default {
-
+    props: {
+        posts: {
+            type: Array,
+            required: true
+        }
+    }
 }
 
 </script>
