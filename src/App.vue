@@ -1,9 +1,10 @@
 <template>
     <div class="app">
-        <form type="text">
+        <!-- submit prevent - -->
+        <form @submit.prevent>
             <h4>Create a post</h4>
-            <input @input="inputTitle" v-bind:value="title" class="input" type="text" placeholder="Title">
-            <input @input="inputDescription" v-bind:value="body" class="input" type="text" placeholder="Description">
+            <input @input="title = $event.target.value" v-bind:value="title" class="input" type="text" placeholder="Title">
+            <input @input="body = $event.target.value" v-bind:value="body" class="input" type="text" placeholder="Description">
             <button class="btn" @click="createPost">Create</button>
         </form>
         <div class="post" v-for="post in posts">
@@ -24,19 +25,20 @@ export default {
                 {id: 4, title: 'Vuejs', body: 'Description of post 4'}
             ],
             title: '',
-            body: ''
+            body: '',
         }
     },
     methods: {
         createPost() {
-
+            const newPost = {
+                id: Date.now(),
+                title: this.title,
+                body: this.body,
+            }
+            this.posts.push(newPost);
+            this.title = '';
+            this.body = '';
         },
-        inputTitle(event) {
-            this.title = event.target.value;
-        },
-        inputDescription(event) {
-            this.description = event.target.value;
-        }
     }
 }
 </script>
