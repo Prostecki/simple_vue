@@ -1,4 +1,4 @@
-<!-- The syntax includes of using template tag for structurizing html contents -->
+<!-- The syntax includes using template tags for structuring HTML contents -->
 <template>
     <!-- The form with a submit event listener that prevents the default behavior -->
     <form @submit.prevent>
@@ -19,33 +19,37 @@
         type="text" 
         placeholder="Description">
         
+        <!-- Button for creating a post, with a click event listener calling the 'createPost' method -->
         <button 
         class="btn"
         @click="createPost">
         Create
         </button>
     </form>
-
 </template>
 
 <script>
-
-// Need to export the components in order to use in App.vue
+// Need to export the component in order to use in App.vue
 export default {
     data() {
         return {
+            // Data property 'post' with title and body properties
             post: {
-                // Title property for the post
-                title: '',
-                // Body property for the post
-                body: '',
+                title: '', // Title property for the post
+                body: '',  // Body property for the post
             }
         }
     },
     methods: {
+        // Method for creating a post
         createPost() {
+            // Assign a unique id (timestamp) to the post
             this.post.id = Date.now();
+            
+            // Emit a custom event 'create' with the post data
             this.$emit('create', this.post)
+
+            // Reset the post data for a new post
             this.post = {
                 title: '',
                 body: '',
@@ -55,12 +59,11 @@ export default {
 }
 </script>
 
-<!-- Styles is using only for this component -->
+<!-- Styles specific to this component, scoped to avoid global style conflicts -->
 <style scoped>
     form {
         display: flex;
         flex-direction: column;
-
     }
     .btn {
         margin-top: 15px;
