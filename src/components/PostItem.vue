@@ -6,21 +6,21 @@
             <div><strong>Description</strong> {{ post.body }} </div>
         </div>
         <div class="post__btns">
-            <button>Delete</button>
+            <MyButton>Delete</MyButton>
         </div>
     </div>
 </template>
 
 <script>
 
-    export default {
-        props: {
-            post: {
-                type: Object,
-                requried: true,
-            }
+export default {
+    props: {
+        post: {
+            type: Object,
+            requried: true,
         }
-    }
+    },
+}
 
 </script>
 

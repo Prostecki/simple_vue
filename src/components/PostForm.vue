@@ -6,18 +6,18 @@
         <h4>Create a post</h4>
 
         <!-- Input field for the title, with two-way binding to the 'title' property in the data -->
-        <input
+        <MyInput
         v-model="post.title"
-        class="input" 
         type="text"
         placeholder="Title">
+        </MyInput>
 
         <!-- Input field for the body with two-way binding to the 'body' property in the data -->
-        <input 
+        <MyInput
         v-model="post.body"
-        class="input" 
         type="text" 
         placeholder="Description">
+        </MyInput>
         
         <!-- Button for creating a post, with a click event listener calling the 'createPost' method -->
         <MyButton 
@@ -30,14 +30,8 @@
 </template>
 
 <script>
-
-import MyButton from "@/components/UI/MyButton.vue";
-
 // Need to export the component in order to use in App.vue
 export default {
-    components: {
-        MyButton
-    },
     data() {
         return {
             // Data property 'post' with title and body properties
@@ -71,19 +65,5 @@ export default {
     form {
         display: flex;
         flex-direction: column;
-    }
-    .btn {
-        margin-top: 15px;
-        align-self: flex-end;
-        padding: 10px 15px;
-        background: none;
-        color: teal;
-        border: 1px solid teal;
-    }
-    .input {
-        width: 100%;
-        border: 1px solid teal;
-        padding: 10px 15px;
-        margin-top: 15px;
     }
 </style>
