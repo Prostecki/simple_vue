@@ -20,17 +20,24 @@
         placeholder="Description">
         
         <!-- Button for creating a post, with a click event listener calling the 'createPost' method -->
-        <button 
+        <MyButton 
         class="btn"
+        style="align-self: flex-end;"
         @click="createPost">
         Create
-        </button>
+        </MyButton>
     </form>
 </template>
 
 <script>
+
+import MyButton from "@/components/UI/MyButton.vue";
+
 // Need to export the component in order to use in App.vue
 export default {
+    components: {
+        MyButton
+    },
     data() {
         return {
             // Data property 'post' with title and body properties

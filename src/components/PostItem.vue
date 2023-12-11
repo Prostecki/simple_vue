@@ -6,9 +6,7 @@
             <div><strong>Description</strong> {{ post.body }} </div>
         </div>
         <div class="post__btns">
-            <button>
-                Delete
-            </button>
+            <button>Delete</button>
         </div>
     </div>
 </template>
