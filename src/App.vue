@@ -5,7 +5,7 @@
         @create="createPost"
         />
         <PostList 
-        v-bind:posts="posts" 
+        v-bind:posts="posts"
         @remove="removePost"
         />
     </div>
@@ -41,7 +41,7 @@ export default {
         },
         removePost(post) {
             this.posts = this.posts.filter(p => p.id !== post.id)
-        }
+        },
     }
 }
 </script>

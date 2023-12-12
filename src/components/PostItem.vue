@@ -8,9 +8,6 @@
         <div class="post__btns">
             <MyButton
             @click="$emit('remove', post)"
-            :post="post"
-            :key="post.id"
-            @remove="$emit('remove', post)"
             >Delete</MyButton>
         </div>
     </div>

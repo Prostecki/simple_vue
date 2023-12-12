@@ -1,7 +1,7 @@
 <!-- The syntax includes of using template tag for structurizing html contents -->
 <template>
     <!-- Iterating over posts array and displaying each post -->
-    <div>
+    <div v-if="posts.length > 0">
         <h3>Users list</h3>
         <PostItem 
         v-for="post in posts"
@@ -10,6 +10,7 @@
         @remove="$emit('remove', post)" 
         />
     </div>
+    <h2 v-else style="color: red">Users list is empty</h2>
 </template>
 
 <script>
