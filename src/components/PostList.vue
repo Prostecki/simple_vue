@@ -5,7 +5,10 @@
         <h3>Users list</h3>
         <PostItem 
         v-for="post in posts"
-        :post="post" />
+        :post="post"
+        :key="post.id"
+        @remove="$emit('remove', post)" 
+        />
     </div>
 </template>
 
