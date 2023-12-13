@@ -4,7 +4,11 @@
         <h1>Page with posts</h1>
         <MyButton
         @click="showDialog"
-        >Create a user</MyButton>
+        style="margin: 15px 0;"
+        >
+        Create a user
+        </MyButton>
+
         <MyDialog v-model:show="dialogVisible">
             <PostForm
             @create="createPost" 
@@ -47,6 +51,7 @@ export default {
         // Method to create a new post
         createPost(post){
             this.posts.push(post);
+            this.dialogVisible = false;
         },
         removePost(post) {
             this.posts = this.posts.filter(p => p.id !== post.id);
