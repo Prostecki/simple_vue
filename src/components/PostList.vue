@@ -2,7 +2,7 @@
 <template>
     <!-- Iterating over posts array and displaying each post -->
     <div v-if="posts.length > 0">
-        <h3>Users list</h3>
+        <h3>Users list:</h3>
         <PostItem 
         v-for="post in posts"
         :post="post"
@@ -30,5 +30,8 @@ export default {
 
 <!-- Styles is using only for this component -->
 <style scoped>
-
+    h3 {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
 </style>

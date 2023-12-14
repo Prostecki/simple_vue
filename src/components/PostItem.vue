@@ -33,7 +33,6 @@ export default {
         padding: 15px;
         border: 2px solid teal;
         margin-top: 15px;
-        box-shadow: inset 1px 1px 5px black;
         justify-content: space-between;
     }
 </style>
