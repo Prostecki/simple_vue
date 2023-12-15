@@ -2,6 +2,7 @@
 <template>
     <div class="app">
         <h1>Page with posts</h1>
+        <input type="text" v-model ="modificatiorValue">
         <MyButton
         @click="showDialog"
         style="margin: 15px 0;"
@@ -44,7 +45,8 @@ export default {
                 {id: 3, title: 'Vuejs', body: 'Description of post 3'},
                 {id: 4, title: 'Vuejs', body: 'Description of post 4'}
             ],
-            dialogVisible: false
+            dialogVisible: false,
+            modificatiorValue: '',
         }
     },
     methods: {
@@ -58,6 +60,9 @@ export default {
         },
         showDialog() {
             this.dialogVisible = true;
+        },
+        async fetchUsers() {
+            
         }
     }
 }
